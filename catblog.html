@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatBlog 🐾</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #ffe6f2;
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 220px;
+            background: linear-gradient(180deg, #ffb6d5 0%, #ff69b4 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem 1rem 1rem;
+            box-shadow: 2px 0 12px rgba(255, 105, 180, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 10;
+        }
+        .sidebar h2 {
+            color: #fff;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        .sidebar li {
+            margin-bottom: 1.2rem;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            display: block;
+            transition: background 0.2s;
+        }
+        .sidebar a:hover {
+            background: #fff0fa;
+            color: #ff69b4;
+        }
+        .main-content {
+            margin-left: 240px;
+            flex: 1;
+        }
+        header {
+            background: linear-gradient(90deg, #ffb6d5 0%, #ff69b4 100%);
+            color: #fff;
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+            font-family: 'Montserrat', Arial, sans-serif;
+            box-shadow: 0 2px 8px rgba(255,105,180,0.08);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-shadow: 1px 2px 8px #ffb6d5;
+        }
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 1.2rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #fff0fa;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(255,105,180,0.10);
+            padding: 2rem;
+        }
+        .post {
+            margin-bottom: 2.5rem;
+        }
+        .post img {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 12px rgba(255,182,213,0.18);
+            border: 3px solid #ffb6d5;
+        }
+        .post h2 {
+            margin: 0 0 0.5rem 0;
+            color: #ff69b4;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .post .date {
+            color: #d48bb6;
+            font-size: 0.95rem;
+            margin-bottom: 0.7rem;
+        }
+        .post p {
+            line-height: 1.7;
+        }
+        footer {
+            text-align: center;
+            color: #d48bb6;
+            padding: 2rem 0 1rem 0;
+            font-size: 1rem;
+        }
+        @media (max-width: 900px) {
+            .main-content { margin-left: 0; }
+            .sidebar { position: static; width: 100%; min-height: auto; flex-direction: row; justify-content: center; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 1rem; }
+            header h1 { font-size: 2rem; }
+            .sidebar { padding: 1rem 0.5rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#naps">Cat Naps</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#photos">Cat Photos</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <header>
+            <h1>CatBlog 🐾</h1>
+            <p>Adventures, stories, and tips for cat lovers</p>
+        </header>
+        <div class="container">
+            <div class="post" id="naps">
+                <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80" alt="Cute cat on a blanket">
+                <h2>The Joy of Cat Naps</h2>
+                <div class="date">July 18, 2025</div>
+                <p>
+                    Cats are the masters of relaxation. Whether curled up in a sunbeam or sprawled across your keyboard, their ability to nap anywhere is legendary. In this post, we explore why cats love to sleep so much and how you can create the perfect nap spot for your feline friend.
+                </p>
+            </div>
+            <div class="post" id="games">
+                <img src="https://images.unsplash.com/photo-1518715308788-3005759c41c8?auto=format&fit=crop&w=800&q=80" alt="Kitten playing with yarn">
+                <h2>Play: An Average Day at the Cat Cafe</h2>
+                <div class="date">HTML5 Game Embed</div>
+                <p>
+                    Enjoy this adorable cat cafe game right here! (Game by <a href="https://zephyo.itch.io/an-average-day-at-the-cat-cafe" target="_blank" rel="noopener">zephyo on itch.io</a>)
+                </p>
+                <div style="width:100%;max-width:640px;margin:1.5rem auto;">
+                    <iframe src="https://zephyo.itch.io/an-average-day-at-the-cat-cafe" allowfullscreen="" width="640" height="480" frameborder="0" style="border:4px solid #ffb6d5;border-radius:12px;box-shadow:0 2px 12px #ffb6d5;display:block;margin:auto;"></iframe>
+                </div>
+            </div>
+            <div class="post" id="photos">
+                <img src="https://images.unsplash.com/photo-1518715308788-3005759c41c8?auto=format&fit=crop&w=800&q=80" alt="Cat with a bow tie">
+                <h2>How to Take the Purrfect Cat Photo</h2>
+                <div class="date">July 10, 2025</div>
+                <p>
+                    Want to capture your cat's personality on camera? Discover tips for lighting, timing, and getting your cat to pose for Instagram-worthy photos.
+                </p>
+            </div>
+            <div class="post" id="about">
+                <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80" alt="Cat with a flower">
+                <h2>About CatBlog</h2>
+                <div class="date">July 1, 2025</div>
+                <p>
+                    CatBlog is a cozy corner for all cat lovers to share stories, tips, and adorable photos. Whether you're a seasoned cat parent or just love cute kitties, you'll find something to purr about here!
+                </p>
+            </div>
+        </div>
+        <footer>
+            &copy; 2025 CatBlog. Made with <span style="color:#ff69b4">&#10084;&#65039;</span> for cat lovers.
+        </footer>
+    </div>
+</body>
+</html>
