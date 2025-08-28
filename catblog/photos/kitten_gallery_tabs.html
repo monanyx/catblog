@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CatBlog — Kitten Gallery (Tabs + Stagger)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="kitten_gallery_tabs.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Kitten Gallery 🐾</h1>
+    <p>Filter by stage. Clean white layout. Smooth fade/slide with a tiny stagger.</p>
+  </header>
+
+  <main class="wrap">
+    <nav class="tabs" id="tabs" role="tablist" aria-label="Kitten stages">
+      <button class="tab active" role="tab" aria-selected="true" data-cat="all">All</button>
+      <button class="tab" role="tab" data-cat="newborn">Newborn</button>
+      <button class="tab" role="tab" data-cat="wobbly">Wobbly</button>
+      <button class="tab" role="tab" data-cat="explorer">Explorer</button>
+      <button class="tab" role="tab" data-cat="teen">Teen</button>
+      <button class="tab" role="tab" data-cat="adult">Adult</button>
+    </nav>
+
+    <section class="panel">
+      <div class="gallery" id="gallery" role="list">
+        <!-- Replace the thumbnails and data-src with your photos -->
+        <button class="tile" role="listitem" data-cat="newborn" data-src="https://placekitten.com/900/650">
+          <img src="https://placekitten.com/400/300" alt="Newborn kitten">
+          <span class="label">0–2 Weeks</span>
+        </button>
+        <button class="tile" role="listitem" data-cat="wobbly" data-src="https://placekitten.com/901/651">
+          <img src="https://placekitten.com/401/301" alt="Wobbly kitten">
+          <span class="label">2–4 Weeks</span>
+        </button>
+        <button class="tile" role="listitem" data-cat="explorer" data-src="https://placekitten.com/902/652">
+          <img src="https://placekitten.com/402/302" alt="Explorer kitten">
+          <span class="label">1–3 Months</span>
+        </button>
+        <button class="tile" role="listitem" data-cat="teen" data-src="https://placekitten.com/903/653">
+          <img src="https://placekitten.com/403/303" alt="Teen kitten">
+          <span class="label">3–6 Months</span>
+        </button>
+        <button class="tile" role="listitem" data-cat="adult" data-src="https://placekitten.com/904/654">
+          <img src="https://placekitten.com/404/304" alt="Adult kitten">
+          <span class="label">6–12 Months</span>
+        </button>
+        <button class="tile" role="listitem" data-cat="explorer" data-src="https://placekitten.com/905/655">
+          <img src="https://placekitten.com/405/305" alt="Explorer kitten playing">
+          <span class="label">Explorer</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Photo viewer">
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <img id="lbImg" alt="Kitten photo"/>
+  </div>
+
+  <footer class="foot">&copy; 2025 CatBlog. Tabs + stagger for maximum cute.</footer>
+
+  <script src="kitten_gallery_tabs.js" defer></script>
+</body>
+</html>

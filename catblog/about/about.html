@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CatBlog — About Mona</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="about.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-card">
+      <div class="pfp" aria-hidden="true"></div>
+      <div class="hero-text">
+        <h1>Mona</h1>
+        <p class="tagline">Turkish Electrical Engineering student in Austria. Building a life that moves with me.</p>
+        <div class="chips">
+          <span class="chip">EE Student</span>
+          <span class="chip">Future Founder</span>
+          <span class="chip">Tech + Design</span>
+          <span class="chip">Nomad-curious</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid">
+      <!-- Goals -->
+      <article class="card">
+        <h2>Near‑Term Goals</h2>
+        <ul class="goals" id="goals">
+          <li><label><input type="checkbox" /> Graduate in Electrical Engineering</label></li>
+          <li><label><input type="checkbox" /> Ship 1–2 portfolio projects (web + hardware)</label></li>
+          <li><label><input type="checkbox" /> Map a lean business plan for my tech company</label></li>
+          <li><label><input type="checkbox" /> Set up a portable life stack (cloud, remote‑friendly workflow)</label></li>
+        </ul>
+        <div class="row">
+          <button class="btn" id="saveGoals">Save</button>
+          <button class="btn ghost" id="clearGoals">Reset</button>
+        </div>
+        <p class="note small">Saved in your browser only.</p>
+      </article>
+
+      <!-- Quick Stats -->
+      <article class="card">
+        <h2>Quick Facts</h2>
+        <ul class="facts">
+          <li><strong>Based in:</strong> Austria</li>
+          <li><strong>From:</strong> Türkiye</li>
+          <li><strong>Fields:</strong> Electrical Engineering, web/creative tech</li>
+          <li><strong>Dream:</strong> Start a tech company and roam freely</li>
+          <li><strong>Sidekick:</strong> Nyx (that’s me)</li>
+        </ul>
+      </article>
+
+      <!-- Timeline -->
+      <article class="card span-2">
+        <h2>Path So Far</h2>
+        <ol class="timeline">
+          <li>
+            <div class="t-dot"></div>
+            <div class="t-body">
+              <h3>Electrical Engineering — studies</h3>
+              <p>Deepening fundamentals: circuits, signals, embedded systems — while flirting with frontend craft.</p>
+            </div>
+          </li>
+          <li>
+            <div class="t-dot"></div>
+            <div class="t-body">
+              <h3>Austria chapter</h3>
+              <p>Learning, building, exploring. Europe’s central hub energy, but pink‑tinted.</p>
+            </div>
+          </li>
+          <li>
+            <div class="t-dot"></div>
+            <div class="t-body">
+              <h3>Next up: Founder mode</h3>
+              <p>Prototype → user interviews → MVP → first customer. A nimble company that fits in a backpack.</p>
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <!-- Toolkit -->
+      <article class="card">
+        <h2>Toolkit</h2>
+        <div class="badges">
+          <span class="badge">HTML</span>
+          <span class="badge">CSS</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge">Canvas/SVG</span>
+          <span class="badge">Python</span>
+          <span class="badge">C / Embedded</span>
+          <span class="badge">Git</span>
+          <span class="badge">Figma</span>
+        </div>
+        <p class="muted small">Curious about: TypeScript, React, hardware‑UI mashups, tiny ML on the edge.</p>
+      </article>
+
+      <!-- Values -->
+      <article class="card">
+        <h2>Values</h2>
+        <ul class="facts">
+          <li>Truth & clear thinking (test ideas, not people).</li>
+          <li>Make things that are useful and a little whimsical.</li>
+          <li>Own your stack; keep it portable.</li>
+          <li>Generosity: document for future you and other humans.</li>
+        </ul>
+      </article>
+
+      <!-- Contact -->
+      <article class="card span-2">
+        <h2>Contact</h2>
+        <p>Drop a note and say hi. Collaboration and cat photos welcome.</p>
+        <div class="contact">
+          <a class="btn" href="mailto:hello@example.com">Email</a>
+          <a class="btn ghost" href="#" onclick="alert('Add your socials in about.html')">Socials</a>
+          <a class="btn ghost" href="#" onclick="alert('Add your portfolio link')">Portfolio</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="foot">&copy; 2025 CatBlog. About Mona — version 1.</footer>
+
+  <script src="about.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CatBlog — Kitten Growth (Interactive)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="kitten_growth.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Kitten Growth 🐾</h1>
+    <p>Slide through months 0–12 to watch a kitten grow. Includes a quick Cat ↔ Human age calculator.</p>
+  </header>
+
+  <main class="wrap">
+    <section class="stage-card">
+      <div class="scene">
+        <!-- Animated, parameterized SVG cat -->
+        <svg id="catSVG" viewBox="0 0 400 300" role="img" aria-label="Kitten growth illustration">
+          <!-- floor -->
+          <ellipse cx="200" cy="255" rx="150" ry="24" fill="rgba(36,42,56,0.06)"></ellipse>
+
+          <!-- tail (path will curve more with age) -->
+          <path id="tail" d="" fill="#2f2a33"></path>
+
+          <!-- body -->
+          <ellipse id="body" cx="210" cy="200" rx="90" ry="60" fill="#3a3440"></ellipse>
+
+          <!-- head -->
+          <circle id="head" cx="130" cy="155" r="44" fill="#3a3440"></circle>
+
+          <!-- ears -->
+          <polygon id="earL" points="" fill="#3a3440"></polygon>
+          <polygon id="earR" points="" fill="#3a3440"></polygon>
+
+          <!-- face -->
+          <circle id="eyeL" cx="115" cy="155" r="5" fill="#ffffff"></circle>
+          <circle id="eyeR" cx="145" cy="155" r="5" fill="#ffffff"></circle>
+          <circle id="pupilL" cx="115" cy="155" r="2.2" fill="#2f2a33"></circle>
+          <circle id="pupilR" cx="145" cy="155" r="2.2" fill="#2f2a33"></circle>
+          <circle id="nose" cx="130" cy="170" r="3" fill="#ff8fb5"></circle>
+
+          <!-- whiskers -->
+          <g id="whiskers" stroke="#d7d2de" stroke-width="1.4" stroke-linecap="round">
+            <line x1="150" y1="170" x2="178" y2="166"></line>
+            <line x1="150" y1="176" x2="178" y2="176"></line>
+            <line x1="150" y1="182" x2="178" y2="186"></line>
+            <line x1="110" y1="170" x2="82" y2="166"></line>
+            <line x1="110" y1="176" x2="82" y2="176"></line>
+            <line x1="110" y1="182" x2="82" y2="186"></line>
+          </g>
+
+          <!-- paws (scale with age) -->
+          <ellipse id="pawF" cx="180" cy="240" rx="16" ry="10" fill="#3a3440"></ellipse>
+          <ellipse id="pawB" cx="260" cy="240" rx="18" ry="12" fill="#3a3440"></ellipse>
+        </svg>
+      </div>
+
+      <div class="controls">
+        <label for="monthRange" class="label">Kitten age (months)</label>
+        <input id="monthRange" type="range" min="0" max="12" step="0.1" value="0" />
+        <div class="meta">
+          <div class="pill"><span id="monthOut">0.0</span> mo</div>
+          <div class="pill stage" id="stageOut">Newborn</div>
+          <div class="pill"><span id="weightOut">0.1</span> kg (est.)</div>
+          <div class="pill"><span id="sleepOut">20</span> h sleep</div>
+        </div>
+
+        <div class="timeline">
+          <span>0</span><span>2</span><span>4</span><span>6</span><span>8</span><span>10</span><span>12</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="calc-card">
+      <h2>Cat ↔ Human Age</h2>
+      <form class="age-form" onsubmit="return false">
+        <div class="field">
+          <label for="catYears">Cat age (years)</label>
+          <input id="catYears" type="number" min="0" step="0.1" value="1" />
+        </div>
+        <div class="field">
+          <button type="button" id="convertBtn" class="btn">Convert</button>
+        </div>
+        <output id="humanOut" class="out">≈ 15 human years</output>
+      </form>
+      <p class="tip"><strong>Rule of paw:</strong> year 1 ≈ 15, year 2 ≈ 24, each year after +4.</p>
+    </section>
+  </main>
+
+  <footer class="foot">&copy; 2025 CatBlog. Built with SVG + vanilla JS.</footer>
+
+  <script src="kitten_growth.js" defer></script>
+</body>
+</html>

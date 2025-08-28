@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CatBlog — Kitten Health</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="kitten_health.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Kitten Health ❤️</h1>
+    <p>Friendly, non-medical guidance to help you track growth, care, and vet visits.</p>
+  </header>
+
+  <main class="wrap">
+    <nav id="tabs" class="tabs" role="tablist" aria-label="Health sections">
+      <button class="tab active" role="tab" aria-selected="true" data-pane="overview">Overview</button>
+      <button class="tab" role="tab" data-pane="vaccines">Vaccines</button>
+      <button class="tab" role="tab" data-pane="care">Weight & Care</button>
+      <button class="tab" role="tab" data-pane="vetlog">Vet Log</button>
+    </nav>
+
+    <!-- Overview Pane -->
+    <section id="pane-overview" class="pane show" role="tabpanel" aria-labelledby="Overview">
+      <div class="card">
+        <h2>Age & Checklist</h2>
+        <div class="age-row">
+          <label for="ageMonths" class="label">Kitten age (months)</label>
+          <input id="ageMonths" type="range" min="0" max="12" step="0.5" value="0" />
+          <div class="chips">
+            <span class="chip"><strong id="ageOut">0</strong> mo</span>
+            <span class="chip stage" id="stageOut">Newborn</span>
+          </div>
+        </div>
+
+        <div class="checklist" id="checklist" aria-live="polite"></div>
+
+        <p class="note">This is general information, not a diagnosis. If something seems off, contact a veterinarian.</p>
+      </div>
+
+      <div class="card tips">
+        <h2>Quick Flags</h2>
+        <ul class="flags">
+          <li><span class="f urgent">Urgent</span> No eating/drinking for 24h, severe lethargy, blue/gray gums, difficulty breathing.</li>
+          <li><span class="f soon">Soon</span> Vomiting/diarrhea > 24h, eye discharge that persists, sneezing fits, fleas/ticks.</li>
+          <li><span class="f monitor">Monitor</span> Occasional soft stool, mild sneezes, slight appetite dip for < 12h.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Vaccines Pane -->
+    <section id="pane-vaccines" class="pane" role="tabpanel" aria-labelledby="Vaccines">
+      <div class="grid">
+        <div class="card">
+          <h2>Core Vaccine Timeline</h2>
+          <p class="muted">Typical schedule for indoor kittens (varies by region/vet). Always follow your vet’s plan.</p>
+          <ol class="timeline" id="vaxList">
+            <li><span class="dot"></span> 6–8 weeks: FVRCP #1</li>
+            <li><span class="dot"></span> 10–12 weeks: FVRCP #2</li>
+            <li><span class="dot"></span> 14–16 weeks: FVRCP #3 & Rabies (per local law)</li>
+            <li><span class="dot"></span> ~1 year: Boosters</li>
+            <li><span class="dot"></span> Adult: Vet-guided boosters (1–3 years)</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>Generate Your Dates</h2>
+          <form class="vax-form" onsubmit="return false">
+            <label for="birthDate">Birth (or approximate) date</label>
+            <input type="date" id="birthDate" />
+            <button type="button" id="genVax" class="btn">Create schedule</button>
+            <div id="vaxOut" class="vax-out"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Care Pane -->
+    <section id="pane-care" class="pane" role="tabpanel" aria-labelledby="Weight & Care">
+      <div class="grid">
+        <div class="card">
+          <h2>Hydration Estimator</h2>
+          <p class="muted">A simple estimate. Many kittens drink less if fed wet food. Fresh water always.</p>
+          <label for="weightKg">Weight (kg)</label>
+          <input id="weightKg" type="number" min="0" step="0.1" placeholder="e.g., 1.2" />
+          <button type="button" id="calcHydro" class="btn">Estimate</button>
+          <div class="big-out" id="waterOut">—</div>
+          <div class="muted small">Rule of thumb: ~50–60 ml per kg per day. Wet food adds water.</div>
+        </div>
+
+        <div class="card">
+          <h2>Weight Tracker</h2>
+          <form class="tracker" id="trackForm" onsubmit="return false">
+            <label>Date <input type="date" id="tDate"></label>
+            <label>Weight (kg) <input type="number" id="tWeight" min="0" step="0.01" placeholder="e.g., 1.35"></label>
+            <button class="btn" id="addEntry" type="button">Add entry</button>
+          </form>
+          <div class="table-wrap">
+            <table class="table" id="trackTable" aria-live="polite">
+              <thead><tr><th>Date</th><th>Weight (kg)</th><th></th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="row">
+            <button class="btn ghost" id="exportTrack">Export JSON</button>
+            <button class="btn danger" id="clearTrack">Clear</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vet Log Pane -->
+    <section id="pane-vetlog" class="pane" role="tabpanel" aria-labelledby="Vet Log">
+      <div class="card">
+        <h2>Vet Visits & Meds</h2>
+        <form class="vet-form" id="vetForm" onsubmit="return false">
+          <div class="row">
+            <label>Date <input type="date" id="vDate"></label>
+            <label>Reason <input type="text" id="vReason" placeholder="Wellness exam, vaccine, etc."></label>
+          </div>
+          <div class="row">
+            <label>Medication <input type="text" id="vMed" placeholder="Dewormer, flea treatment"></label>
+            <label>Notes <input type="text" id="vNotes" placeholder="Any observations"></label>
+          </div>
+          <button class="btn" id="addVet" type="button">Add</button>
+        </form>
+
+        <div class="table-wrap">
+          <table class="table" id="vetTable" aria-live="polite">
+            <thead><tr><th>Date</th><th>Reason</th><th>Medication</th><th>Notes</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="row">
+          <button class="btn ghost" id="exportVet">Export JSON</button>
+          <button class="btn danger" id="clearVet">Clear</button>
+        </div>
+      </div>
+
+      <p class="note">This section stores data in your browser only (localStorage). It’s just a personal log, not medical records.</p>
+    </section>
+  </main>
+
+  <footer class="foot">&copy; 2025 CatBlog. Health tools are educational and not a substitute for veterinary care.</footer>
+
+  <script src="kitten_health.js" defer></script>
+</body>
+</html>
